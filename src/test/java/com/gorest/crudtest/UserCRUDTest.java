@@ -15,7 +15,7 @@ public class UserCRUDTest extends TestBase {
 
     static int userId;
     static String name = TestUtil.getRandomName();
-    static String email = TestUtil.getRandomValue() + "xyz@gmail.com";
+    static String email = TestUtil.getRandomValue() + "abc@gmail.com";
     static String gender = "female";
     static String status = "active";
     static String token = "96b8378466d4dea75932675beb87d26be273534f95f4a1a7e2b1cf83c0a75e4a";
