@@ -14,7 +14,9 @@ public class TestUtil {
 
     public static String getRandomName(){
         Faker faker = new Faker();
-        return faker.name().firstName();
+        return faker
+                .name()
+                .firstName();
     }
 
 }

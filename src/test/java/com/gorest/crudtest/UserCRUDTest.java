@@ -15,7 +15,7 @@ public class UserCRUDTest extends TestBase {
 
     static int userId;
     static String name = TestUtil.getRandomName();
-    static String email = TestUtil.getRandomValue() + "abc@gmail.com";
+    static String email = TestUtil.getRandomValue() + "cbd@gmail.com";
     static String gender = "female";
     static String status = "active";
     static String token = "96b8378466d4dea75932675beb87d26be273534f95f4a1a7e2b1cf83c0a75e4a";
@@ -25,7 +25,7 @@ public class UserCRUDTest extends TestBase {
 
     @Title("Create New User")
     @Test
-    public void verifyUserCreatedSuccessfully() {
+    public void test01() {
 
         response = userSteps.createUser(token,name,email,gender,status);
         response.statusCode(201);
@@ -34,7 +34,7 @@ public class UserCRUDTest extends TestBase {
 
     @Title("Getting and Verify new created user Detail")
     @Test
-    public void getNewCreatedUserDetail(){
+    public void test02(){
 
         response = userSteps.getUserInfoById(userId,token);
         response.statusCode(200);
@@ -42,15 +42,15 @@ public class UserCRUDTest extends TestBase {
 
     @Title("Update user email and verify detail")
     @Test
-    public void verifyUserUpdateSuccessfully() {
+    public void test03() {
 
         String updEmail = "jp" + email;
-        response.statusCode(200);
+        userSteps.updateUserById(userId,token,name,updEmail,gender,status).log().all();
     }
 
     @Title("Deleting user and verify it deleted")
     @Test
-    public void verifyUserDeleteSuccessfully() {
+    public void test04() {
 
         userSteps.deleteUser(userId,token).statusCode(204);
         userSteps.getUserInfoById(userId,token).statusCode(404);

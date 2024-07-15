@@ -15,7 +15,7 @@ public class UserSteps {
 
         return SerenityRest.given()
                 .header("Content-type","application/json")
-                .header("Authorization" , "Bearer" + token)
+                .header("Authorization" , "Bearer " + token)
                 .when()
                 .body(userPojo)
                 .post(EndPoints.GET_ALL_USER)
@@ -26,7 +26,7 @@ public class UserSteps {
     public ValidatableResponse getUserInfoById(int userId, String token){
         return SerenityRest.given()
                 .pathParam("userID", userId)
-                .header("Authorization" , "Bearer" + token)
+                .header("Authorization" , "Bearer " + token)
                 .when()
                 .get(EndPoints.GET_SINGLE_USER_BY_ID)
                 .then();
@@ -38,7 +38,7 @@ public class UserSteps {
         return SerenityRest.given()
                 .pathParam("userID", userId)
                 .header("Content-type","application/json")
-                .header("Authorization" , "Bearer" + token)
+                .header("Authorization" , "Bearer " + token)
                 .when()
                 .body(userPojo)
                 .patch(EndPoints.UPDATE_SINGLE_USER_BY_ID)
